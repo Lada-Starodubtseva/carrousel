@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Carrousel
- * Author: Eddy Martin
- * Author uri: https://github.com/eddytuto
+ * Author: Lada Starodubtseva
+ * Author uri: https://github.com/Lada-Starodubtseva
  * Description: Permet d'afficher les images d'une galerie dans une boîte modale naviguable
  */
 
@@ -45,6 +45,6 @@ function genere_boite()
                 <button class="carrousel__x">X</button>
                 <figure class="carrousel__figure"></figure>
                 <form class="carrousel__form"></form>
-            </div>';
+            </div>'
 }
 add_shortcode('carrousel', 'genere_boite');
