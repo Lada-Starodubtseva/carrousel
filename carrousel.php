@@ -35,6 +35,11 @@ function creation_carrousel()
     <button class='carrousel__x'>X</button>
     <figure class='carrousel__figure'></figure>
     <form class='carrousel__form'></form>
+    <div class='arrow arrow-left'>
+    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3521175/arrow-left.svg' />
+  </div>
+  <div class='arrow arrow-right'><img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3521175/arrow-right.svg' /></div>
+</div>
     </div> <!-- fin du carrousel -->";
 }
 add_shortcode('carrousel', 'creation_carrousel');
