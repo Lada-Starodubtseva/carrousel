@@ -17,6 +17,8 @@
 
 
 
+
+
   function remplir_carrousel() {
 
     for (const element of galerie__img) {
@@ -35,7 +37,6 @@
   }
 
   function creation_img_carrousel(element) {
-
 
     let img = document.createElement('img')
     img.setAttribute('src', element.getAttribute('src'))
@@ -63,6 +64,7 @@
       index = this.dataset.index
       afficher_image(index)
     })
+
   }
 
 
@@ -78,7 +80,7 @@
     // carrousel__figure.children[index].style.opacity = 1
     carrousel__figure.children[index].classList.add('carrousel__img--activer')
 
-    ancien_index = index
+
 
   }
 
@@ -86,7 +88,7 @@
 
   bout_carrousel_ouvrir.addEventListener('mousedown', function () {
     carrousel.classList.add('carrousel--ouvrir')
-    // remplir_carrousel();
+    afficher_image(index);
     console.log("boite ouverte");
   });
 
