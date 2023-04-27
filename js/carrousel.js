@@ -5,6 +5,11 @@
   let carrousel__x = document.querySelector('.carrousel__x');
   let carrousel__figure = document.querySelector('.carrousel__figure');
 
+  let fleche_gauche = document.querySelector('.arrow-left');
+  let fleche_droite = document.querySelector('.arrow-right');
+
+
+  console.log(fleche_gauche)
   let carrousel__form = document.querySelector('.carrousel__form');
   let galerie = document.querySelector('.galerie');
   let galerie__img = galerie.querySelectorAll('img');
@@ -22,6 +27,7 @@
   function remplir_carrousel() {
 
     for (const element of galerie__img) {
+
       element.dataset.index = position;
       element.addEventListener('mousedown', function () {
         carrousel.classList.add('carrousel--ouvrir')
@@ -29,10 +35,15 @@
         afficher_image(index)
         console.log(index);
 
+
+
       })
+
 
       creation_img_carrousel(element);
       creation_radio_carrousel();
+      changement_image(index)
+
     }
   }
 
@@ -54,35 +65,61 @@
     rad.setAttribute('type', 'radio')
     rad.setAttribute('name', 'carrousel__rad')
     rad.classList.add('carrousel__rad')
+
+
+
     rad.dataset.index = position
     position = position + 1 // incrémentation de 1
     // position += 1
     // position++
     carrousel__form.appendChild(rad)
     rad.addEventListener('mousedown', function () {
-      console.log(this.dataset.index)
+      console.log(index)
       index = this.dataset.index
-      afficher_image(index)
+      afficher_image(this.dataset.index);
+    })
+
+  }
+
+
+  function changement_image(index) {
+    //let new_index = 0;
+    fleche_droite.addEventListener('mousedown', function () {
+      console.log('FD cliquée')
+      index -1
+    })
+    fleche_gauche.addEventListener('mousedown', function () {
+      console.log('FG cliquée')
+      new_index = ancien_index + 4
+      afficher_image(new_index);
     })
 
   }
 
 
 
+
+
+
+
   function afficher_image(index) {
+
+
     if (ancien_index != -1) {
       // carrousel__figure.children[ancien_index].style.opacity = 0  
-      carrousel__figure.children[ancien_index].classList.remove('carrousel__img--activer')
+      carrousel__figure.children[ancien_index].classList.remove('carrousel__img--activer');
 
       //carrousel__form.children[ancien_index].checked = false;
     }
 
     // carrousel__figure.children[index].style.opacity = 1
-    carrousel__figure.children[index].classList.add('carrousel__img--activer')
+    carrousel__figure.children[index].classList.add('carrousel__img--activer');
 
 
+    ancien_index = index
 
   }
+
 
 
 
