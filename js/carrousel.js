@@ -24,6 +24,7 @@
 
 
 
+
   function remplir_carrousel() {
 
     for (const element of galerie__img) {
@@ -42,8 +43,6 @@
 
       creation_img_carrousel(element);
       creation_radio_carrousel();
-      changement_image(index)
-
     }
   }
 
@@ -82,20 +81,6 @@
   }
 
 
-  function changement_image(index) {
-    //let new_index = 0;
-    fleche_droite.addEventListener('mousedown', function () {
-      console.log('FD cliquée')
-      index -1
-    })
-    fleche_gauche.addEventListener('mousedown', function () {
-      console.log('FG cliquée')
-      new_index = ancien_index + 4
-      afficher_image(new_index);
-    })
-
-  }
-
 
 
 
@@ -133,6 +118,38 @@
     console.log('fermer la boîte modale')
     carrousel.classList.remove('carrousel--ouvrir')
   });
+
+
+
+fleche_gauche.addEventListener('mousedown', function(){  
+
+  if(index <= 0){
+    index = 4
+    afficher_image(index)
+  }else{
+    index = index - 1;
+  afficher_image(index);
+  console.log(index)
+  }
+})
+fleche_droite.addEventListener('mousedown', function(){
+  
+  if(index >= 4){
+    index = 0
+    afficher_image(index);
+    console.log(index)
+  }else{
+    index = index + 1;
+  afficher_image(index);
+  console.log(index)
+
+  }
+  
+})
+
+
+
+
 
   //permet de vérifier si carrousel--activer se trouve dans la liste des classes carrousel
   // carrousel.classlist.contain('carrousel--ouvrir')
