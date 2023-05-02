@@ -124,7 +124,7 @@
 fleche_gauche.addEventListener('mousedown', function(){  
 
   if(index <= 0){
-    index = 4
+    index = galerie__img.length-1
     afficher_image(index)
   }else{
     index = index - 1;
@@ -134,7 +134,7 @@ fleche_gauche.addEventListener('mousedown', function(){
 })
 fleche_droite.addEventListener('mousedown', function(){
   
-  if(index >= 4){
+  if(index >= galerie__img.length-1){
     index = 0
     afficher_image(index);
     console.log(index)
